@@ -14,7 +14,14 @@ const textureLoader = new THREE.TextureLoader();
 
 //================== Objects ========================
 const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
-const material = new THREE.MeshBasicMaterial();
+const material = new THREE.RawShaderMaterial({
+  vertexShader: `
+    
+  `,
+  fragmentShaderL: `
+  
+  `,
+});
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
