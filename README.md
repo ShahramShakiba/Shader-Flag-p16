@@ -10,24 +10,53 @@
  <br/>
 
 ## What is a Shader
-A shader is a program that runs on the graphics processing unit (GPU) to determine how 3D objects are rendered on the screen. <br/> Shaders are essential for defining the visual appearance of objects in a 3D scene, including their color, lighting, texture, and special effects.
+A shader is a program written in GLSL (OpenGL Shading Language) that runs on the GPU (Graphics Processing Unit) to determine how 3D objects are rendered on the screen. <br/> Shaders are essential for defining the visual appearance of objects in a 3D scene, including their color, lighting, texture, and special effects.
 
 #### Simple Explanation :
 Shaders in Three.js are like special effects artists in a movie. Just like an artist adds visual effects to make a movie scene look amazing, shaders enhance the graphics in a 3D scene to make it look more realistic or artistic. They do this by manipulating how objects look when they are drawn on the screen. <br/><br/>
 
+#### We send a lot of data to the shader :
+  - Vertices coordinates
+  - Mesh transformation
+  - Information about the camera
+  - Colors
+  - Textures
+  - Lights
+  - Fog
+  - Etc
 
 > ###  Two types of shaders
-#### 1. Vertex Shaders: 
-  - `Role :` <br/> Define the position of each point (vertex) in 3D space. They shape the geometry of objects.
+#### 1. Vertex Shaders 
+_Define the position of each point (vertex) in 3D space. They shape the geometry of objects._
   - `Function :` <br/> Transform 3D coordinates to 2D screen coordinates, manage vertex positions, and pass data to the fragment shader.
   - `Example :` <br/> Adjusting the position of vertices to animate a waving flag.
   - `Real-Life Analogy :` <br/> Imagine you're designing a sculpture. The vertex shader is like the sculptor who shapes the clay into a specific form, deciding where each part of the sculpture should be.
     
-#### 2. Fragment Shaders: 
-  - `Role :` <br/> Define the color and texture of each pixel on the object. They handle the details of how an object looks.
+#### 2. Fragment Shaders 
+_Define the color and texture of each pixel on the object. They handle the details of how an object looks._
   - `Function :` <br/> Determine the final color of pixels, handle lighting calculations, apply textures, and create visual effects.
   - `Example :` <br/> Making a surface look shiny and reflective, like a metal.
   - `Real-Life Analogy :` <br/> Once the sculpture is shaped, the fragment shader is like the painter who adds color, texture, and details to the sculpture to make it look realistic or stylized.
+
+<br/> 
+
+### Attributes
+_Attributes are variables that hold data specific to each vertex in a 3D model. These variables change from vertex to vertex._ <br/> 
+  - Attributes could be the position of each vertex, its color, or its texture coordinates.
+  - Analogy: <br/> When rendering a 3D model of a tree, each vertex might have attributes for its position in 3D space, its normal direction (for lighting calculations), and its UV coordinates (for applying textures).
+
+
+### Uniforms
+_Uniforms are variables in shaders that remain constant for all vertices and pixels during a single rendering pass._ <br/>
+  - Uniforms could be the light direction, the color of a light source, or the current time for animations. 
+  - Analogy: <br/> Uniforms are like the oven temperature or cooking time in a recipe—these values are the same for the entire batch of cookies (all vertices and fragments).
+
+### Varyings
+_Varyings are variables used to pass data from the vertex shader to the fragment shader. These values are interpolated, meaning they are smoothly transitioned between vertices across the surface of a polygon._ <br/>
+  - Varyings are used for data that needs to be shared between vertex and fragment shaders, such as interpolated colors or texture coordinates.
+  - Analogy: <br/> Varyings are like the sauce that is spread across the pizza. You apply the sauce at a few key points (vertices), and it gets spread out evenly across the whole pizza (interpolated across fragments).
+
+
 
 <br/> 
 
