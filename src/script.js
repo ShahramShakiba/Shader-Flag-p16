@@ -23,6 +23,7 @@ const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
 const material = new THREE.RawShaderMaterial({
   vertexShader: vertex,
   fragmentShader: fragment,
+  transparent: true,
 });
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
