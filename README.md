@@ -68,7 +68,7 @@ _Define the color and texture of each pixel on the object. They handle the detai
   }
  ```
 
-<br/> <br/> <br/> 
+<br/> <br/> 
 <hr>
 
 > ### _Attributes_
@@ -89,7 +89,7 @@ Varyings are variables used to pass data from the "vertex" shader to the "fragme
 
 
 
-<br/> 
+<br/> <br/> 
 
 > ### What is GLSL?
 GLSL (OpenGL Shading Language) is the programming language used to write shaders. It is designed to run on the GPU and allows fine control over the graphics pipeline. It's close to C language.
@@ -116,24 +116,21 @@ GLSL (OpenGL Shading Language) is the programming language used to write shaders
 >> 3. Customization : <br/> Craft unique visual effects that are not possible with standard materials.
 >> 4. Interactivity : <br/> Create dynamic effects that respond to user input or time, like animated water or glowing buttons.
 
-
-
-<br/> <br/> 
+<br/> 
 
 
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Eyes.png" alt="Eyes" width="25" height="25" /> Feel free to delve into the code as it has been written in a straightforward manner for easy understanding.
-<br/> <br/> 
+<br/> <br/> <br/> 
 
 
 <!-------- try it live -------->
-#### _Give it a go in real-time and give me a Star_ &nbsp; <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25"  /> <a href="" target="_blank"> &nbsp; _Shaders_ </a> 
+#### _Try it out immediately, and if you enjoy it, please give me a star._ &nbsp; <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25"  /> <a href="https://shader-waving-flag-shahram.netlify.app/" target="_blank"> &nbsp; _Shaders | Waving Flag_ </a> 
 
-<br/>
 
 <!--------- Video --------->
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Clapper%20Board.webp" alt="Clapper Board" width="35" /> &nbsp; 
 
-
+https://github.com/user-attachments/assets/5d38ae04-0373-4767-99dc-7bc7b28e90b7
 
   <br/> 
 
