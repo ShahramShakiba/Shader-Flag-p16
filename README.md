@@ -25,36 +25,57 @@ Shaders in Three.js are like special effects artists in a movie. Just like an ar
   - Fog
   - Etc
 
-> ###  Two types of shaders
-#### 1. Vertex Shaders 
-_Define the position of each point (vertex) in 3D space. They shape the geometry of objects._
-  - `Function :` <br/> Transform 3D coordinates to 2D screen coordinates, manage vertex positions, and pass data to the fragment shader.
-  - `Example :` <br/> Adjusting the position of vertices to animate a waving flag.
-  - `Real-Life Analogy :` <br/> Imagine you're designing a sculpture. The vertex shader is like the sculptor who shapes the clay into a specific form, deciding where each part of the sculpture should be.
+<br/>
+
+## Two types of shaders
+> ### _1. Vertex Shaders_ 
+_Define the position of each vertex (point) in 3D space. They shape the geometry of objects._
+  - _`Function :`_ <br/> Transform 3D coordinates to 2D screen coordinates, manage vertex positions, and pass data to the fragment shader.
+  - _`Example :`_ <br/> Adjusting the position of vertices to animate a waving flag.
+  - _`Real-Life Analogy :`_ <br/> Imagine you're designing a sculpture. The vertex shader is like the sculptor who shapes the clay into a specific form, deciding where each part of the sculpture should be.
+  
+#### _vertex.glsl :_
+ ``` glsl
+  uniform mat4 modelMatrix;   // apply transformations relative to the Mesh (position, rotation, scale).
+  uniform mat4 viewMatrix;   // apply transformations relative to the Camera (position, rotation, fov, near, far).
+  uniform mat4 projectionMatrix;   // transform the coordinates into the Clip Space coordinates.
+
+  attribute vec3 position;
+
+  void main() {
+    vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+    vec4 viewPosition = viewMatrix * modelPosition;
+    vec4 projectionPosition = projectionMatrix * viewPosition;
+
+    gl_Position = projectionPosition;
+  }
+  ```
+
+  <br/> 
     
-#### 2. Fragment Shaders 
+> ### _2. Fragment Shaders_ 
 _Define the color and texture of each pixel on the object. They handle the details of how an object looks._
-  - `Function :` <br/> Determine the final color of pixels, handle lighting calculations, apply textures, and create visual effects.
-  - `Example :` <br/> Making a surface look shiny and reflective, like a metal.
-  - `Real-Life Analogy :` <br/> Once the sculpture is shaped, the fragment shader is like the painter who adds color, texture, and details to the sculpture to make it look realistic or stylized.
+  - _`Function :`_ <br/> Determine the final color of pixels, handle lighting calculations, apply textures, and create visual effects.
+  - _`Example :`_ <br/> Making a surface look shiny and reflective, like a metal.
+  - _`Real-Life Analogy :`_ <br/> Once the sculpture is shaped, the fragment shader is like the painter who adds color, texture, and details to the sculpture to make it look realistic or stylized.
 
 <br/> 
 
-### Attributes
-_Attributes are variables that hold data specific to each vertex in a 3D model. These variables change from vertex to vertex._ <br/> 
+> ### _Attributes_
+Attributes are variables that hold data specific to each vertex in a 3D model. These variables change from vertex to vertex. <br/> 
   - Attributes could be the position of each vertex, its color, or its texture coordinates.
-  - Analogy: <br/> When rendering a 3D model of a tree, each vertex might have attributes for its position in 3D space, its normal direction (for lighting calculations), and its UV coordinates (for applying textures).
+  - _Analogy_ : <br/> When rendering a 3D model of a tree, each vertex might have attributes for its position in 3D space, its normal direction (for lighting calculations), and its UV coordinates (for applying textures).
 
 
-### Uniforms
-_Uniforms are variables in shaders that remain constant for all vertices and pixels during a single rendering pass._ <br/>
+> ### _Uniforms_
+Uniforms are variables in shaders that remain constant for all vertices and pixels during a single rendering pass. <br/>
   - Uniforms could be the light direction, the color of a light source, or the current time for animations. 
-  - Analogy: <br/> Uniforms are like the oven temperature or cooking time in a recipe—these values are the same for the entire batch of cookies (all vertices and fragments).
+  - _Analogy_ : <br/> Uniforms are like the oven temperature or cooking time in a recipe—these values are the same for the entire batch of cookies (all vertices and fragments).
 
-### Varyings
-_Varyings are variables used to pass data from the vertex shader to the fragment shader. These values are interpolated, meaning they are smoothly transitioned between vertices across the surface of a polygon._ <br/>
+> ### _Varyings_
+Varyings are variables used to pass data from the "vertex" shader to the "fragment" shader. These values are interpolated, meaning they are smoothly transitioned between vertices across the surface of a polygon. <br/>
   - Varyings are used for data that needs to be shared between vertex and fragment shaders, such as interpolated colors or texture coordinates.
-  - Analogy: <br/> Varyings are like the sauce that is spread across the pizza. You apply the sauce at a few key points (vertices), and it gets spread out evenly across the whole pizza (interpolated across fragments).
+  - _Analogy_ : <br/> Varyings are like the sauce that is spread across the pizza. You apply the sauce at a few key vertices (points), and it gets spread out evenly across the whole pizza (interpolated across fragments).
 
 
 
@@ -62,6 +83,21 @@ _Varyings are variables used to pass data from the vertex shader to the fragment
 
 > ### What is GLSL?
 GLSL (OpenGL Shading Language) is the programming language used to write shaders. It is designed to run on the GPU and allows fine control over the graphics pipeline. It's close to C language.
+
+#### GLSL Syntax and Features
+1. C-like Syntax :
+   - GLSL is syntactically similar to the C programming language, making it familiar to many developers.
+   - Supports data types such as int, float, vec2, vec3, vec4, mat2, mat3, mat4, etc.
+
+2. Built-in Functions :
+   - Provides a rich set of built-in functions for mathematical operations, texture sampling, geometric calculations, and more.
+   - Examples include sin(), cos(), normalize(), dot(), cross(), texture(), etc.
+
+3. Precision Qualifiers :
+   - Allows specifying the precision of floating-point calculations.
+   - Common qualifiers include highp, mediump, and lowp.
+
+<br/><br/> 
 
 > [!IMPORTANT]
 > #### Benefits of Using Shaders
