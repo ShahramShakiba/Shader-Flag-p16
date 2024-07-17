@@ -4,10 +4,13 @@ uniform vec3 uColor;
 uniform sampler2D uTexture;
 
 varying vec2 varyingUv;
+varying float vElevation;
 
 void main() {
   // Sample the texture at the given UV coordinates
   vec4 textureColor = texture2D(uTexture, varyingUv);
+  textureColor.rgb *= vElevation + 0.6;
+
   gl_FragColor = textureColor;
 }
 

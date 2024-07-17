@@ -7,13 +7,15 @@ uniform float uTime;
 attribute vec3 position;
 attribute vec2 uv;
 
-// pass uv-coordinates to fragment
-varying vec2 varyingUv;
+varying vec2 varyingUv; // pass uv-coordinates to fragment
+varying float vElevation;
 
 void main() {
   vec4 modelPosition = modelMatrix * vec4(position, 1.0);
-  modelPosition.z += sin(modelPosition.x * uFrequency.x - uTime) / 10.0;
-  modelPosition.z += sin(modelPosition.y * uFrequency.y - uTime) / 15.0;
+
+  float elevation = sin(modelPosition.x * uFrequency.x - uTime) / 10.0;
+  elevation += sin(modelPosition.y * uFrequency.y - uTime) / 18.0;
+  modelPosition.z += elevation;
 
   vec4 viewPosition = viewMatrix * modelPosition;
   vec4 projectionPosition = projectionMatrix * viewPosition;
@@ -21,6 +23,7 @@ void main() {
   gl_Position = projectionPosition;
 
   varyingUv = uv;
+  vElevation = elevation;
 }
 
 
