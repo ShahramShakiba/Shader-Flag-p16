@@ -3,11 +3,11 @@ uniform mat4 viewMatrix;
 uniform mat4 projectionMatrix;
 
 attribute vec3 position;
+attribute float aRandom;
+// it's not vec3, it's float because we 1 value
 
 void main() {
   vec4 modelPosition = modelMatrix * vec4(position, 1.0);
-  modelPosition.z += sin(modelPosition.x * 10.0) / 10.0;
-
   vec4 viewPosition = viewMatrix * modelPosition;
   vec4 projectionPosition = projectionMatrix * viewPosition;
 
@@ -197,4 +197,58 @@ void main() {
 
   gl_Position = projectionPosition;
 }
+
+
+========================================================================
+---> Create random attribute <--
+
+script.js:
+const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
+
+//===== Start waving
+const count = geometry.attributes.position.count; // how many vertices
+const randoms = new Float32Array(count);
+
+for (let i = 0; i < count; i++) {
+  randoms[i] = Math.random();
+}
+
+// console.log(randoms);
+
+geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 1)); //ex1 ↓
+
+// console.log(geometry);
+
+
+
+vertex.js : 
+attribute float aRandom;
+// it's not vec3, it's float because we 1 value
+
+varying float vRandom;
+
+
+void main() {
+  vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+  // modelPosition.z += sin(modelPosition.x * 10.0) / 10.0;
+  modelPosition.z += aRandom * 0.1; 
+
+  vec4 viewPosition = viewMatrix * modelPosition;
+  vec4 projectionPosition = projectionMatrix * viewPosition;
+
+  gl_Position = projectionPosition;
+
+  vRandom = aRandom;
+}
+
+
+fragment.js : 
+precision mediump float;
+
+varying float vRandom;
+
+void main() {
+  gl_FragColor = vec4(vRandom * 0.2, vRandom, 0.0, 1.0);
+}
+
 */

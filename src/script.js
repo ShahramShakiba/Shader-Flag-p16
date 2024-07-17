@@ -20,11 +20,28 @@ const textureLoader = new THREE.TextureLoader();
 
 //================== Objects ========================
 const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
+
+//=== Start waving
+const count = geometry.attributes.position.count; // how many vertices
+const randoms = new Float32Array(count);
+
+for (let i = 0; i < count; i++) {
+  randoms[i] = Math.random();
+}
+
+// console.log(randoms);
+
+geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 1)); //ex1 ↓
+
+// console.log(geometry);
+
+//============= Material
 const material = new THREE.RawShaderMaterial({
   vertexShader: vertex,
   fragmentShader: fragment,
   transparent: true,
 });
+
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
@@ -98,3 +115,10 @@ tick();
 
 /************ map, alphaMap, opacity, color, etc
  * they wont work on material and we need to write these features ourselves in vertex and fragment shaders */
+
+/*********** ex 1 
+ * for position we provide 3 (x, y, z) for itemSize, but now is one random value per vertex so it's just 1
+ 
+ * aRandom : attribute random
+ * uRandom : uniform random
+ * vRandom : varying random  */
