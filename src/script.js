@@ -17,6 +17,7 @@ let height = window.innerHeight;
 
 //=================== Textures ======================
 const textureLoader = new THREE.TextureLoader();
+const flagTexture = textureLoader.load('./textures/flag-wave-switzerland.jpg');
 
 //================== Objects ========================
 const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
@@ -43,6 +44,8 @@ const material = new THREE.RawShaderMaterial({
   uniforms: {
     uFrequency: { value: new THREE.Vector2(10, 5) },
     uTime: { value: 0 },
+    uColor: { value: new THREE.Color('orange') },
+    uTexture: { value: flagTexture },
   },
 });
 
@@ -54,11 +57,12 @@ gui
   .name('frequencyY');
 
 const mesh = new THREE.Mesh(geometry, material);
+mesh.scale.y = 4 / 6;
 scene.add(mesh);
 
 //===================== Camera =========================
 const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 100);
-camera.position.set(0.25, -0.25, 1);
+camera.position.set(0.25, 0, 1);
 scene.add(camera);
 
 //================ Orbit Controls ======================
@@ -91,7 +95,7 @@ const clock = new THREE.Clock();
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
-  material.uniforms.uTime.value = elapsedTime ;
+  material.uniforms.uTime.value = elapsedTime;
 
   controls.update();
   renderer.render(scene, camera);

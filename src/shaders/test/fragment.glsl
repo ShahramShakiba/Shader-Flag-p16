@@ -1,11 +1,20 @@
 precision mediump float;
 
+uniform vec3 uColor;
+uniform sampler2D uTexture;
+
+varying vec2 varyingUv;
+
 void main() {
-  gl_FragColor = vec4(1.0, 0.6, 0.0, 1.0);
+  // Sample the texture at the given UV coordinates
+  vec4 textureColor = texture2D(uTexture, varyingUv);
+  gl_FragColor = textureColor;
 }
 
+
+
 /**
----> precision mediump float; <---
+**--> precision mediump float; <---
 
 *? This line sets the default precision for floating-point variables to mediump (medium precision). 
 This is important in environments where precision can affect performance and quality, such as mobile devices.
@@ -17,7 +26,7 @@ This is important in environments where precision can affect performance and qua
 
 
 
----> gl_FragColor = vec4(1.0, 0.6, 0.0, 1.0); <---
+**---> gl_FragColor = vec4(1.0, 0.6, 0.0, 1.0); <---
 
 *? gl_FragColor is a built-in variable that specifies the color of the pixel. It is a vec4 (a 4-component vector) where each component represents the red, green, blue, and alpha (transparency) channels, respectively.
 
@@ -25,4 +34,14 @@ This is important in environments where precision can affect performance and qua
 ** Summary
 This fragment shader is a simple program that sets every pixel it processes to an orange color. 
 The use of medium precision for floating-point calculations ensures a balance between performance and accuracy, suitable for many applications, especially on mobile platforms.
+
+
+**--> sampler2D <---
+- is the type for the textures
+
+
+
+**--> texture2D() <---
+-  returns a vec4
+-  Most textures store color information in four channels: red, green, blue, and alpha. These four channels are often represented as a vec4 in GLSL.
 */

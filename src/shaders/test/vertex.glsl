@@ -5,6 +5,10 @@ uniform vec2 uFrequency;
 uniform float uTime;
 
 attribute vec3 position;
+attribute vec2 uv;
+
+// pass uv-coordinates to fragment
+varying vec2 varyingUv;
 
 void main() {
   vec4 modelPosition = modelMatrix * vec4(position, 1.0);
@@ -15,7 +19,10 @@ void main() {
   vec4 projectionPosition = projectionMatrix * viewPosition;
 
   gl_Position = projectionPosition;
+
+  varyingUv = uv;
 }
+
 
 
 /**
