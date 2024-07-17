@@ -51,7 +51,7 @@ _Define the position of each vertex (point) in 3D space. They shape the geometry
   }
   ```
 
-  <br/> 
+  <br/> <br/> 
     
 > ### _2. Fragment Shaders_ 
 _Define the color and texture of each pixel on the object. They handle the details of how an object looks._
@@ -59,7 +59,17 @@ _Define the color and texture of each pixel on the object. They handle the detai
   - _`Example :`_ <br/> Making a surface look shiny and reflective, like a metal.
   - _`Real-Life Analogy :`_ <br/> Once the sculpture is shaped, the fragment shader is like the painter who adds color, texture, and details to the sculpture to make it look realistic or stylized.
 
-<br/> 
+#### _fragment.glsl :_
+ ``` glsl
+  precision mediump float;   // sets the default precision for floating-point variables.
+
+  void main() {
+    gl_FragColor = vec4(1.0, 0.6, 0.0, 1.0);   // specifies the color of the pixel.
+  }
+ ```
+
+<br/> <br/> <br/> 
+<hr>
 
 > ### _Attributes_
 Attributes are variables that hold data specific to each vertex in a 3D model. These variables change from vertex to vertex. <br/> 
