@@ -1,4 +1,4 @@
-  # <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Laptop.webp" alt="Laptop" width="35" /> &nbsp; _Shaders-Flag_ &nbsp; <img src="https://skillicons.dev/icons?i=threejs" height="35" alt="threejs logo"  />  
+  # <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Laptop.webp" alt="Laptop" width="35" /> &nbsp; _Shaders | Waving Flag_ &nbsp; <img src="https://skillicons.dev/icons?i=threejs" height="35" alt="threejs logo"  />  
 
 <!----------------------------------------- Description ---------------------------------------->
 ### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Bubbles.png" alt="Bubbles" width="40" height="40" />&nbsp; _Description_
@@ -51,7 +51,7 @@ _Define the position of each vertex (point) in 3D space. They shape the geometry
   }
   ```
 
-  <br/> 
+  <br/> <br/> 
     
 > ### _2. Fragment Shaders_ 
 _Define the color and texture of each pixel on the object. They handle the details of how an object looks._
@@ -59,7 +59,17 @@ _Define the color and texture of each pixel on the object. They handle the detai
   - _`Example :`_ <br/> Making a surface look shiny and reflective, like a metal.
   - _`Real-Life Analogy :`_ <br/> Once the sculpture is shaped, the fragment shader is like the painter who adds color, texture, and details to the sculpture to make it look realistic or stylized.
 
-<br/> 
+#### _fragment.glsl :_
+ ``` glsl
+  precision mediump float;   // sets the default precision for floating-point variables.
+
+  void main() {
+    gl_FragColor = vec4(1.0, 0.6, 0.0, 1.0);   // specifies the color of the pixel.
+  }
+ ```
+
+<br/> <br/> 
+<hr>
 
 > ### _Attributes_
 Attributes are variables that hold data specific to each vertex in a 3D model. These variables change from vertex to vertex. <br/> 
@@ -79,7 +89,7 @@ Varyings are variables used to pass data from the "vertex" shader to the "fragme
 
 
 
-<br/> 
+<br/> <br/> 
 
 > ### What is GLSL?
 GLSL (OpenGL Shading Language) is the programming language used to write shaders. It is designed to run on the GPU and allows fine control over the graphics pipeline. It's close to C language.
@@ -106,24 +116,21 @@ GLSL (OpenGL Shading Language) is the programming language used to write shaders
 >> 3. Customization : <br/> Craft unique visual effects that are not possible with standard materials.
 >> 4. Interactivity : <br/> Create dynamic effects that respond to user input or time, like animated water or glowing buttons.
 
-
-
-<br/> <br/> 
+<br/> 
 
 
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Eyes.png" alt="Eyes" width="25" height="25" /> Feel free to delve into the code as it has been written in a straightforward manner for easy understanding.
-<br/> <br/> 
+<br/> <br/> <br/> 
 
 
 <!-------- try it live -------->
-#### _Give it a go in real-time and give me a Star_ &nbsp; <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25"  /> <a href="" target="_blank"> &nbsp; _Shaders_ </a> 
+#### _Try it out immediately, and if you enjoy it, please give me a star._ &nbsp; <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25"  /> <a href="https://shader-waving-flag-shahram.netlify.app/" target="_blank"> &nbsp; _Shaders | Waving Flag_ </a> 
 
-<br/>
 
 <!--------- Video --------->
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Clapper%20Board.webp" alt="Clapper Board" width="35" /> &nbsp; 
 
-
+https://github.com/user-attachments/assets/5d38ae04-0373-4767-99dc-7bc7b28e90b7
 
   <br/> 
 
