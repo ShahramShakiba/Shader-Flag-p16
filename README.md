@@ -1,4 +1,4 @@
-  # <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Laptop.webp" alt="Laptop" width="35" /> &nbsp; _Shaders | Waving Flag_ &nbsp; <img src="https://skillicons.dev/icons?i=threejs" height="35" alt="threejs logo"  />  
+  # <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Laptop.webp" alt="Laptop" width="35" /> &nbsp; _Shader | Waving Flag_ &nbsp; <img src="https://skillicons.dev/icons?i=threejs" height="35" alt="threejs logo"  />  
 
 <!----------------------------------------- Description ---------------------------------------->
 ### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Bubbles.png" alt="Bubbles" width="40" height="40" />&nbsp; _Description_
@@ -118,6 +118,19 @@ GLSL (OpenGL Shading Language) is the programming language used to write shaders
 
 <br/> 
 
+> [!CAUTION]
+> ### How to fix, SyntaxError: Unexpected identifier 'mat4'
+> Install: `  npm i vite-plugin-glsl --save-dev  ` <br/>
+> Go to "vite.config.js" :
+   ``` vite.config.js
+     import glsl from 'vite-plugin-glsl';
+     
+     plugins: [
+       glsl(), // Handle shader files
+     ],
+  ```
+
+<br/><br/>
 
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Eyes.png" alt="Eyes" width="25" height="25" /> Feel free to delve into the code as it has been written in a straightforward manner for easy understanding.
 <br/> <br/> <br/> 
