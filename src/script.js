@@ -22,6 +22,8 @@ const flagTexture = textureLoader.load('./textures/flag-wave-switzerland.jpg');
 //================== Objects ========================
 const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
 
+
+// console.log(geometry.attributes.position);
 //=== Start waving
 const count = geometry.attributes.position.count; // how many vertices
 const randoms = new Float32Array(count);
@@ -42,7 +44,7 @@ const material = new THREE.RawShaderMaterial({
   fragmentShader: fragment,
 
   uniforms: {
-    uFrequency: { value: new THREE.Vector2(10, 5) },
+    uFrequency: { value: new THREE.Vector2(10, 5) }, // frequency of a wave ↓
     uTime: { value: 0 },
     uColor: { value: new THREE.Color('orange') },
     uTexture: { value: flagTexture },
@@ -57,7 +59,7 @@ gui
   .name('frequencyY');
 
 const mesh = new THREE.Mesh(geometry, material);
-mesh.scale.y = 4 / 6;
+mesh.scale.y = 5 / 6;
 scene.add(mesh);
 
 //===================== Camera =========================
@@ -139,3 +141,8 @@ tick();
  * aRandom : attribute random
  * uRandom : uniform random
  * vRandom : varying random  */
+
+/********** uFrequency
+ * Control the value for creating a wave from js 
+    
+    - not only use numbers in glsl, but from here too */

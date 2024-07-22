@@ -3,12 +3,12 @@ precision mediump float;
 uniform vec3 uColor;
 uniform sampler2D uTexture;
 
-varying vec2 varyingUv;
+varying vec2 vUv;
 varying float vElevation;
 
 void main() {
   // Sample the texture at the given UV coordinates
-  vec4 textureColor = texture2D(uTexture, varyingUv);
+  vec4 textureColor = texture2D(uTexture, vUv);
   textureColor.rgb *= vElevation + 0.6;
 
   gl_FragColor = textureColor;
@@ -36,7 +36,7 @@ This is important in environments where precision can affect performance and qua
 
 ** Summary
 This fragment shader is a simple program that sets every pixel it processes to an orange color. 
-The use of medium precision for floating-point calculations ensures a balance between performance and accuracy, suitable for many applications, especially on mobile platforms.
+- The use of medium precision for floating-point calculations ensures a balance between performance and accuracy, suitable for many applications, especially on mobile platforms.
 
 
 **--> sampler2D <---

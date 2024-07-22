@@ -5,9 +5,9 @@ uniform vec2 uFrequency;
 uniform float uTime;
 
 attribute vec3 position;
-attribute vec2 uv;
+attribute vec2 uv; // Get uv coordinates to apply texture 
 
-varying vec2 varyingUv; // pass uv-coordinates to fragment
+varying vec2 vUv; // pass uv-coordinates to fragment
 varying float vElevation;
 
 void main() {
@@ -22,7 +22,7 @@ void main() {
 
   gl_Position = projectionPosition;
 
-  varyingUv = uv;
+  vUv = uv;
   vElevation = elevation;
 }
 
@@ -42,7 +42,7 @@ void main() {
 ========================================================================
 ** **  uniform mat4 modelMatrix;
 
-- The modelMatrix transforms vertex coordinates from object (model) space to world space. It represents the object's position, rotation, and scale in the scene.
+- The modelMatrix transforms vertex coordinates, from object(model) space to world space. It represents the object's position, rotation, and scale in the scene.
 
 *? This matrix is used to move, rotate, or scale the object in the scene. It's like deciding where to place a toy on a table, how to turn it, and how big or small it should be.
 
@@ -50,7 +50,7 @@ void main() {
 ========================================================================
 ** ** uniform mat4 viewMatrix;
 
-- The viewMatrix is used to transform vertex coordinates from world space to camera (view) space. It represents the camera's position and orientation in the scene.
+- The viewMatrix is used to transform vertex coordinates from world space to camera(view) space. It represents the camera's position and orientation in the scene.
 
 *? This one helps adjust the scene based on where our camera is and where it's looking. It's like moving the entire scene around so that the camera can see it from a particular angle. 
 
@@ -78,9 +78,9 @@ Think of it as the area that the camera can see, bounded by the edges of the scr
 
 - Attributes are per-vertex data passed from the host application to the vertex shader. Each vertex processed by the shader has its own position value.
 
-- The position attribute represents the vertex's coordinates in object (model) space.
+- The position attribute represents the vertex's coordinates in object(model) space.
 
-** This line says each vertex (point) of our 3D object has a position with three coordinates (x, y, z). Each vertex has its own position. Think of it as each corner of a box having its own place in space.
+** This line says each vertex(point) of our 3D object has a position with three coordinates (x, y, z). Each vertex has its own position. Think of it as each corner of a box having its own place in space.
 
 
 ========================================================================
@@ -127,8 +127,25 @@ In graphics programming, this is done using a technique called "homogeneous coor
 
 
 ========================================================================
+---> elevation <---
+
+In computer graphics, particularly in shader programming, we often manipulate the vertex positions to create various effects. 
+The concept of "elevation" in the given vertex shader is used to create a dynamic wave-like "displacement" on the z-axis of the vertices of a 3D model.
+
+** Purpose of Elevation
+1. Dynamic Displacement:
+      The primary purpose of the elevation in this shader is to dynamically alter the position of vertices in the z-direction to create a wavy effect. 
+      This simulates the appearance of waves or other periodic movements on the surface of the 3D model.
+
+2. Visual Interest:
+      Adding elevation changes to a surface can make it look more natural or interesting. For example, it can simulate the effect of terrain undulations, water waves, or other natural phenomena that involve surface displacement.
 
 
+*? Elevation: Adds dynamic vertical displacement to vertices to create a wave-like effect.
+
+
+
+========================================================================
   vec2 foo = vec2(1.0, 2.0);
   foo *= 2.0;
   
